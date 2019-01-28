@@ -1,0 +1,8 @@
+{
+  "zosversion": "2",
+  "name": "selfkey-payments",
+  "version": "0.1.0",
+  "contracts": {
+    "PaymentGateway": "PaymentGateway"
+  }
+}
