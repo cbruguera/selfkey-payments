@@ -35,9 +35,9 @@ git config user.email "username@domain.suffix"
 2. Now work on your changes locally until you are happy the issue is resolved. See below for how to name commit messages.
 3. `git flow feature publish {feature_name}` will push it back up to your fork on GitHub.
 4. Use `git flow feature pull {remote_name} {feature_name}` to bring in any other changes, If other people have also merged changes in, and you can't merge your PR automatically you'll need to `rebase` their changes into your changes and then `--force` push the resulting changes using standard `git` commands.
-5. Use GitHub to raise a Pull Request. Add labels as appropriate, and set one or more reviewers. Then paste the url of the PR into the `#development` Slack channel with a request for someone to please review the changes. See below for how to name pull requests.
+5. Use GitHub to raise a Pull Request. Add labels as appropriate, and set one or more reviewers if necessary.
 6. Respond to any comments as appropriate, making changes and `git push` ing further changes as appropriate.
-7. When all comments are dealt and the PR finally gets a :+1: from someone else then merge the PR. _Note we will not be using the `git flow feature finish`_ option as that merges into develop automatically without the option for review. [see this stackexchange for more on that](http://programmers.stackexchange.com/questions/187723/code-review-with-git-flow-and-github).
+7. When all issues are dealt with and the PR is approved and ready, then merge. _Note we will not be using the `git flow feature finish`_ option as that merges into develop automatically without the option for review. [see this stackexchange for more on that](http://programmers.stackexchange.com/questions/187723/code-review-with-git-flow-and-github).
 8. In your command-line `git checkout develop` then `git pull upstream develop` to get the latest code and `git branch -D feature/{branchname}` to delete the old feature branch.
 
 #### Hotfixes and Support branches
