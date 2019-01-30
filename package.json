@@ -13,6 +13,7 @@
     "zos-lib": "^2.1.0"
   },
   "dependencies": {
-    "truffle": "^5.0.2"
+    "truffle": "^5.0.2",
+    "zos": "^2.1.0"
   }
 }
