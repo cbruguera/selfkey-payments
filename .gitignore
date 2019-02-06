@@ -49,3 +49,7 @@ local/
 # ZeppelinOS
 .zos*
 zos.dev*
+
+# solidity-coverage
+coverageEnv/
+scTopics

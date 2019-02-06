@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "truffle test",
+    "test:cov": "solidity-coverage",
+    "lint:sol": "solhint contracts/**/*.sol"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "solhint": "^1.5.1",
+    "solidity-coverage": "^0.5.11",
     "truffle-hdwallet-provider": "^1.0.0-web3one.5",
     "zos-lib": "^2.1.0"
   },
   "dependencies": {
     "truffle": "^5.0.2",
-    "zos": "^2.1.0"
+    "zos": "^2.1.2"
   }
 }
