@@ -5,7 +5,7 @@ const timeTravel = require("./utils/timeTravel")
 const MockToken = artifacts.require("./test/MockToken.sol")
 const SplitPayment = artifacts.require("./SplitPayment.sol")
 
-contract("SplitPaymentGateway", accounts => {
+contract("SplitPayment", accounts => {
   const zeroAddress = "0x0000000000000000000000000000000000000000"
   const [owner, user1, user2, user3, user4] = accounts.slice(0)
   let token, payments
