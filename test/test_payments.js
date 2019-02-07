@@ -5,7 +5,7 @@ const timeTravel = require("./utils/timeTravel")
 const MockToken = artifacts.require("./test/MockToken.sol")
 const SimplePayment = artifacts.require("./SimplePayment.sol")
 
-contract("PaymentGateway", accounts => {
+contract("SimplePayment", accounts => {
   const [owner, user1, user2, user3] = accounts.slice(0)
   let token, payments
 
@@ -32,7 +32,7 @@ contract("PaymentGateway", accounts => {
       await assertThrows(payments.makePayment(user2, 1500, web3.utils.fromAscii("serviceX"), { from: user1 }))
     })
 
-    it('users can make simple payments through PaymentGateway', async () => {
+    it('users can make simple payments through SimplePayment contract', async () => {
       await token.approve(payments.address, 1500, { from: user1 })
       let allowance = await token.allowance.call(user1, payments.address)
       assert.equal(allowance, 1500)
