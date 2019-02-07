@@ -5,11 +5,16 @@ const timeTravel = require("./utils/timeTravel")
 const MockToken = artifacts.require("./test/MockToken.sol")
 const SimplePayment = artifacts.require("./SimplePayment.sol")
 
+const zeroAddress = "0x0000000000000000000000000000000000000000"
+
 contract("SimplePayment", accounts => {
   const [owner, user1, user2, user3] = accounts.slice(0)
   let token, payments
 
   before(async () => {
+    // cannot initialize payment contract with 0x0 address
+    await assertThrows(payments = SimplePayment.new(zeroAddress))
+    
     // deploy a mock token contract and instantiate staking manager
     token = await MockToken.new()
     payments = await SimplePayment.new(token.address)
