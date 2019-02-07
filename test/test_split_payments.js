@@ -11,6 +11,9 @@ contract("SplitPayment", accounts => {
   let token, payments
 
   before(async () => {
+    // cannot initialize payment contract with 0x0 address
+    await assertThrows(payments = SplitPayment.new(zeroAddress))
+
     // deploy a mock token contract and instantiate staking manager
     token = await MockToken.new()
     payments = await SplitPayment.new(token.address)
@@ -73,6 +76,10 @@ contract("SplitPayment", accounts => {
       assert.equal(Number(funds4), 500)   // affiliate gets 50%
     })
 
+    it('affiliate fee must be less or equal to 100', async () => {
+      await assertThrows(payments.setAffiliateFee(130))
+    })
+    
     it('non-owner addresses cannot change the affiliate fee', async () => {
       await assertThrows(payments.setAffiliateFee(60, { from: user1 }))
       let newFee = await payments.affiliateFee.call()

@@ -23,7 +23,6 @@ contract SplitPayment is Ownable {
     function makePayment(address recipient, address affiliate, uint256 amount, bytes32 serviceID)
         public
     {
-        require(token.allowance(msg.sender, address(this)) >= amount,"Not enough tokens approved");
         uint256 fee = 0;
         uint256 recipientAmount = amount;   // can amount be reused?
 

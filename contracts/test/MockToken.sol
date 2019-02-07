@@ -13,8 +13,6 @@ contract MockToken is ERC20 {
      *  @param amount — the amount of tokens to give.
      */
     function freeMoney(address recipient, uint amount) external {
-        require(recipient != address(0));
-        //_balances[recipient] = amount;
         _mint(recipient, amount);
     }
 }
