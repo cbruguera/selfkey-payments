@@ -7,6 +7,19 @@ _Note: current implementation status is for Proof of Concept only._
 
 ## Overview
 
+The following contracts are implemented for testing token payments:
+
+* **SimplePayment**: As its name implies, it acts as a simple redirect of payments to a recipient,
+while emitting an event that associates the transaction with a (32 bytes max) `serviceID`. It uses
+the ERC20 `transferFrom` method to take the tokens on behalf of the owner, thus a previous call to
+`approve` with enough funds must be made on the token contract.
+
+* **SplitPayment**: adds a splitting of funds according to a fee percentage set by the contract owner
+(default is 10%). `makePayment` method receives two address, one for the recipient and the other
+for the affiliate, and then performs the due splitting and redirects the funds to each address. It
+also uses the ERC20 `transferFrom` method to take the tokens on behalf of the owner, thus a
+previous call to `approve` with enough funds must be made on the token contract.
+
 ## Development
 
 The smart contracts are being implemented in Solidity `0.5.0`.
